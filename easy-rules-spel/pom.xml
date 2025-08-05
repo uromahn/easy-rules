@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jeasy</groupId>
         <artifactId>easy-rules</artifactId>
-        <version>4.1.1-SNAPSHOT</version>
+        <version>5.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>easy-rules-spel</artifactId>
@@ -13,7 +13,7 @@
     <description>Spring Expression Language integration module</description>
 
     <properties>
-        <spring.version>5.3.1</spring.version>
+        <spring.version>6.2.9</spring.version>
     </properties>
 
     <scm>

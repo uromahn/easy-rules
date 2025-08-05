@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- *  Copyright (c) 2021, Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
+ *  Copyright (c) 2025, Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  *
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
  *  of this software and associated documentation files (the "Software"), to deal
@@ -29,6 +29,7 @@ import java.util.Objects;
 
 import org.apache.commons.jexl3.JexlBuilder;
 import org.apache.commons.jexl3.JexlEngine;
+import org.apache.commons.jexl3.introspection.JexlPermissions;
 import org.jeasy.rules.api.Action;
 import org.jeasy.rules.api.Condition;
 import org.jeasy.rules.api.Facts;
@@ -41,7 +42,7 @@ import org.jeasy.rules.core.BasicRule;
  */
 public class JexlRule extends BasicRule {
 
-    static final JexlEngine DEFAULT_JEXL = new JexlBuilder().create();
+    static final JexlEngine DEFAULT_JEXL = new JexlBuilder().strict(false).silent(false).permissions(JexlPermissions.UNRESTRICTED).create();
 
     private Condition condition = Condition.FALSE;
     private final List<Action> actions = new ArrayList<>();

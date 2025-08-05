@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jeasy</groupId>
         <artifactId>easy-rules</artifactId>
-        <version>4.1.1-SNAPSHOT</version>
+        <version>5.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>easy-rules-jexl</artifactId>
@@ -13,7 +13,7 @@
     <description>JEXL integration module</description>
 
     <properties>
-        <jexl.version>3.1</jexl.version>
+        <jexl.version>3.5.0</jexl.version>
     </properties>
 
     <scm>
