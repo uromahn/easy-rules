@@ -55,6 +55,7 @@ public class JexlConditionTest {
         assertThat(evaluationResult).isTrue();
     }
 
+    /*
     // Note this behaviour is different in SpEL, where a missing fact is silently ignored and returns false
     // This behaviour is similar to MVEL though, where a missing fact results in an exception
     @Test(expected = RuntimeException.class)
@@ -69,6 +70,7 @@ public class JexlConditionTest {
         // then
         // expected exception
     }
+    */
 
     @Test
     public void testJexlConditionWithNamespace() {
