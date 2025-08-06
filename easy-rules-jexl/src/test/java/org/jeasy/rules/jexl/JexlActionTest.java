@@ -40,7 +40,6 @@ import org.apache.commons.jexl3.introspection.JexlSandbox;
 import org.assertj.core.api.Assertions;
 import org.jeasy.rules.api.Action;
 import org.jeasy.rules.api.Facts;
-import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -93,26 +92,31 @@ public class JexlActionTest {
     @Test
     public void testJexlActionExecutionWithFailure() {
         // given
-        Action action = new JexlAction("person.setBlah(true);");
+        JexlEngine jexlEngine = new JexlBuilder()
+                .silent(false)
+                .strict(true)
+                .permissions(JexlPermissions.UNRESTRICTED)
+                .create();
+        Action action = new JexlAction("person.setBlah(true);", jexlEngine);
         Facts facts = new Facts();
         Person foo = new Person("foo", 20);
         facts.put("person", foo);
 
         try {
+            // when
             action.execute(facts);
-        } catch (Throwable e) {
-            log.error("Expected exception: {}", e.getMessage());
+        } catch (Exception e) {
+            log.error("Error executing action", e);
         }
-        // when
-        /*
-        Assertions.assertThatThrownBy(() -> action.execute(facts))
-                .isInstanceOf(JexlException.Method.class)
-                .hasMessage("org.jeasy.rules.jexl.JexlAction.<init>@1:7 unsolvable function/method 'setBlah'");
 
-        */
+        // when
+        Assertions.assertThatThrownBy(() -> action.execute(facts))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("org.jeasy.rules.jexl.JexlAction.execute: expression in script  {person.setBlah(true)} cannot be executed");
+
         // then
         // excepted
-        Assert.assertTrue(false);
+        //Assert.assertTrue(true);
     }
 
     @Test

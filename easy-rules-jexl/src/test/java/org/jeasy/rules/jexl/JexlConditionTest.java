@@ -77,6 +77,8 @@ public class JexlConditionTest {
         namespaces.put("rnd", new Random(123));
         JexlEngine jexlEngine = new JexlBuilder()
                 .namespaces(namespaces)
+                .silent(false)
+                .strict(true)
                 .create();
         Condition condition = new JexlCondition("return rnd:nextBoolean();", jexlEngine);
         Facts facts = new Facts();
