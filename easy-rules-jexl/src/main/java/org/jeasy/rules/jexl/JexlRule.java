@@ -42,7 +42,7 @@ import org.jeasy.rules.core.BasicRule;
  */
 public class JexlRule extends BasicRule {
 
-    static final JexlEngine DEFAULT_JEXL = new JexlBuilder().strict(false).silent(false).permissions(JexlPermissions.UNRESTRICTED).create();
+    static final JexlEngine DEFAULT_JEXL = new JexlBuilder().strict(true).silent(false).safe(false).permissions(JexlPermissions.UNRESTRICTED).create();
 
     private Condition condition = Condition.FALSE;
     private final List<Action> actions = new ArrayList<>();

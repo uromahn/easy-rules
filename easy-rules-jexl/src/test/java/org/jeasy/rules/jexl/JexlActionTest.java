@@ -89,13 +89,13 @@ public class JexlActionTest {
         System.setOut(originalStream);
     }
 
-    /*
     @Test
     public void testJexlActionExecutionWithFailure() {
         // given
         JexlEngine jexlEngine = new JexlBuilder()
                 .silent(false)
                 .strict(true)
+                .safe(false)
                 .create();
         Action action = new JexlAction("person.setBlah(true);", jexlEngine);
         Facts facts = new Facts();
@@ -105,13 +105,12 @@ public class JexlActionTest {
         // when
         Assertions.assertThatThrownBy(() -> action.execute(facts))
                 .isInstanceOf(JexlException.Method.class)
-                .hasMessage("org.jeasy.rules.jexl.JexlAction.<init>@1:7 unsolvable function/method 'setBlah'");
+                .hasMessageContaining("unsolvable function/method 'setBlah");
 
         // then
         // excepted
         //Assert.assertTrue(true);
     }
-    */
 
     @Test
     public void testJexlActionWithExpressionAndFacts() throws Exception {
