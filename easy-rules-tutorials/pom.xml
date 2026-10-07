@@ -13,11 +13,11 @@
     <name>Easy Rules tutorials</name>
 
     <properties>
-        <maven-exec-plugin.version>3.5.1</maven-exec-plugin.version>
-        <servlet.version>4.0.1</servlet.version>
-        <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
-        <jetty-maven-plugin.version>9.4.57.v20241219</jetty-maven-plugin.version>
-        <maven-dependency-plugin.version>3.8.1</maven-dependency-plugin.version>
+        <maven-exec-plugin.version>3.6.4</maven-exec-plugin.version>
+        <jakarta-servlet.version>6.1.0</jakarta-servlet.version>
+        <maven-war-plugin.version>3.5.1</maven-war-plugin.version>
+        <jetty-maven-plugin.version>11.0.26</jetty-maven-plugin.version>
+        <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
     </properties>
 
     <scm>
@@ -77,9 +77,9 @@
             <artifactId>slf4j-simple</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>${jakarta-servlet.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
